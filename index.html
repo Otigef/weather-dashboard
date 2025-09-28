@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="app-container">
+        <header>
+            <h1>Weather Dashboard</h1>
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input type="text" id="city-input" placeholder="Enter city name..." aria-label="City Name" autocomplete="off">
+                    <div id="suggestions-box" class="hidden"></div>
+                </div>
+                <button id="search-btn" aria-label="Search">
+                    <span class="btn-text">Search</span>
+                    <div class="spinner hidden"></div>
+                </button>
+            </div>
+        </header>
+
+        <main id="weather-content">
+            <div id="loader" class="hidden" aria-live="polite">Loading...</div>
+            <div id="error-message" class="hidden" role="alert"></div>
+            
+            <section id="favorites-section" class="hidden">
+                <h3>Favorite Cities</h3>
+                <div id="favorites-list"></div>
+            </section>
+
+            <section id="current-weather" class="hidden">
+                <div class="weather-card">
+                    <div class="city-header">
+                        <h2 id="city-name"></h2>
+                        <button id="add-favorite-btn" aria-label="Add to favorites">☆</button>
+                    </div>
+                    <p id="current-date"></p>
+                    <div class="current-weather-details">
+                        <div id="weather-icon"></div>
+                        <p id="current-temp"></p>
+                    </div>
+                    <p id="weather-description"></p>
+                    <div class="additional-info">
+                        <p><strong>Humidity:</strong> <span id="humidity"></span></p>
+                        <p><strong>Wind Speed:</strong> <span id="wind-speed"></span></p>
+                    </div>
+                    <div id="weather-alerts"></div>
+                </div>
+            </section>
+
+            <section id="forecast" class="hidden">
+                <h3>5-Day Forecast</h3>
+                <div id="forecast-cards"></div>
+            </section>
+        </main>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai@^0.14.0"
+        }
+      }
+    </script>
+    <script type="module" src="index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
